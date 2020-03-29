@@ -1,0 +1,52 @@
+﻿@model WebContactPage.Models.Entry
+
+@{
+    ViewBag.Title = "Contact Page";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>Contact Us</h2>
+        @using (Html.BeginForm("SendForm", "Home" ,FormMethod.Post))
+        {
+            <div class="form-group">
+                @Html.LabelFor(model => model.firstName)
+                @Html.TextBoxFor(model => model.firstName, new { @class="form-control" })
+                <em>@Html.ValidationMessageFor(model => model.firstName)</em>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.lastName)
+                @Html.TextBoxFor(model => model.lastName, new { @class = "form-control" })
+                <em>@Html.ValidationMessageFor(model => model.lastName)</em>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.address)
+                @Html.TextBoxFor(model => model.address, new { @class = "form-control" })
+                <em>@Html.ValidationMessageFor(model => model.address)</em>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.country)
+                @Html.TextBoxFor(model => model.country, new { @class = "form-control" })
+                <em>@Html.ValidationMessageFor(model => model.country)</em>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.zipCode)
+                @Html.TextBoxFor(model => model.zipCode, new { @class = "form-control" })
+                <em>@Html.ValidationMessageFor(model => model.zipCode)</em>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.phoneNumber)
+                @Html.TextBoxFor(model => model.phoneNumber, new { @class = "form-control" })
+                <em>@Html.ValidationMessageFor(model => model.phoneNumber)</em>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.note)
+            </div>
+            <div class="form-group">
+                @Html.TextAreaFor(model => model.note, new { @class = "form-control", placeholder = "Your Message Here" })
+                <em>@Html.ValidationMessageFor(model => model.note)</em>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        }
+    </div>
+</div>
